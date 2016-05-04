@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "GitHubConfigure.h"
+#import "NetworkManager.h"
+#import "UserDefaultHelper.h"
 
 @interface AppDelegate ()
 
@@ -14,9 +17,22 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    return YES;
+}
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options {
+    if(!url.absoluteString) return NO;
+    NSLog(@"url - %@",url.absoluteString);
+    NSString *code = [self getCodeFromOpenURL:url];
+    [NetworkManager githubExchangeTokenWithCode:code SuccessBlock:^(id responseObj) {
+        NSLog(@"res - %@",responseObj);
+        NSString *token = responseObj[@"access_token"];
+        [UserDefaultHelper setToekn:token];
+    } NetworkErrorBlock:^(NSError *error) {
+        
+    }];
     return YES;
 }
 
@@ -42,4 +58,12 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (NSString *)getCodeFromOpenURL:(NSURL *)url {
+    NSString *urlString = url.absoluteString;
+    NSRange range = [urlString rangeOfString:@"code="];
+    NSInteger codeLoc = range.location + range.length;
+    NSInteger codeLen = urlString.length - codeLoc;
+    NSRange codeRange = NSMakeRange(codeLoc, codeLen);
+    return [urlString substringWithRange:codeRange];
+}
 @end

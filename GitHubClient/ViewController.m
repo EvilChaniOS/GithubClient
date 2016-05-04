@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-
+#import "GitHubConfigure.h"
+#import "NetworkManager.h"
 @interface ViewController ()
 
 @end
@@ -17,6 +18,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+}
+
+- (IBAction)login:(id)sender {
+    NSString *url = [NSString stringWithFormat:@"%@?client_id=%@&scope=%@&redirect_uri=%@",kAuthorizeURL,kClientID,kScope,kRedirectURI];
+    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:url]];
+}
+
+- (IBAction)getUserInfo:(id)sender {
+    [NetworkManager accessUserInfoSuccessBlock:^(id responseObj) {
+        NSLog(@"res - %@",responseObj);
+    } NetworkErrorBlock:^(NSError *error) {
+    
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
