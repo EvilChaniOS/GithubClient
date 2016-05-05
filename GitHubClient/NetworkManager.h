@@ -9,14 +9,15 @@
 #import <Foundation/Foundation.h>
 
 typedef void (^CompleteBlock)(id responseObj);
-typedef void (^NetworkErrorBlock)(NSError* error);
+typedef void (^NetworkErrorBlock)(NSError *error);
 
 @interface NetworkManager : NSObject
 
 + (void)githubExchangeTokenWithCode:(NSString *)code
-                       SuccessBlock:(CompleteBlock)success
-                  NetworkErrorBlock:(NetworkErrorBlock)failure;
+                       successBlock:(CompleteBlock)success
+                  networkErrorBlock:(NetworkErrorBlock)failure;
 
 + (void)accessUserInfoSuccessBlock:(CompleteBlock)success
-                 NetworkErrorBlock:(NetworkErrorBlock)failure;
+                 networkErrorBlock:(NetworkErrorBlock)failure;
+
 @end

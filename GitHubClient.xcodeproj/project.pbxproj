@@ -19,6 +19,10 @@
 		A9223B381CD903A90018776B /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9223B371CD903A90018776B /* NetworkManager.m */; };
 		A9223B401CD9B9A60018776B /* HTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9223B3F1CD9B9A60018776B /* HTTPManager.m */; };
 		A9223B441CD9CF120018776B /* UserDefaultHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A9223B431CD9CF120018776B /* UserDefaultHelper.m */; };
+		A9223B5E1CDB17850018776B /* OAuthHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A9223B5D1CDB17850018776B /* OAuthHelper.m */; };
+		A9223B621CDB40290018776B /* NSObject+Archive.m in Sources */ = {isa = PBXBuildFile; fileRef = A9223B611CDB40290018776B /* NSObject+Archive.m */; };
+		A9223B661CDB4BBE0018776B /* JZUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A9223B651CDB4BBE0018776B /* JZUser.m */; };
+		A9223B691CDB4D630018776B /* ArchiveHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A9223B681CDB4D630018776B /* ArchiveHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,14 @@
 		A9223B3F1CD9B9A60018776B /* HTTPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPManager.m; sourceTree = "<group>"; };
 		A9223B421CD9CF120018776B /* UserDefaultHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDefaultHelper.h; sourceTree = "<group>"; };
 		A9223B431CD9CF120018776B /* UserDefaultHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDefaultHelper.m; sourceTree = "<group>"; };
+		A9223B5C1CDB17850018776B /* OAuthHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthHelper.h; sourceTree = "<group>"; };
+		A9223B5D1CDB17850018776B /* OAuthHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthHelper.m; sourceTree = "<group>"; };
+		A9223B601CDB40290018776B /* NSObject+Archive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Archive.h"; sourceTree = "<group>"; };
+		A9223B611CDB40290018776B /* NSObject+Archive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Archive.m"; sourceTree = "<group>"; };
+		A9223B641CDB4BBE0018776B /* JZUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZUser.h; sourceTree = "<group>"; };
+		A9223B651CDB4BBE0018776B /* JZUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZUser.m; sourceTree = "<group>"; };
+		A9223B671CDB4D630018776B /* ArchiveHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveHelper.h; sourceTree = "<group>"; };
+		A9223B681CDB4D630018776B /* ArchiveHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveHelper.m; sourceTree = "<group>"; };
 		B3F90B7742DF2C2777E1377A /* Pods-GitHubClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubClient/Pods-GitHubClient.release.xcconfig"; sourceTree = "<group>"; };
 		BFFB14B87C452ECFBF7EC8E8 /* Pods-GitHubClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubClient/Pods-GitHubClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,7 +140,9 @@
 			isa = PBXGroup;
 			children = (
 				A9223B3D1CD9A3E50018776B /* GitHubConfigure.h */,
-				A9223B411CD9CEE60018776B /* UserDefaultHelper */,
+				A9223B631CDB4B7C0018776B /* Model */,
+				A9223B5F1CDB3F7B0018776B /* Category */,
+				A9223B411CD9CEE60018776B /* Helper */,
 				40255AFE1CD5045D00BC0F7C /* HttpClient */,
 				40255ACE1CD5011400BC0F7C /* AppDelegate.h */,
 				40255ACF1CD5011400BC0F7C /* AppDelegate.m */,
@@ -188,13 +202,35 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A9223B411CD9CEE60018776B /* UserDefaultHelper */ = {
+		A9223B411CD9CEE60018776B /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				A9223B421CD9CF120018776B /* UserDefaultHelper.h */,
 				A9223B431CD9CF120018776B /* UserDefaultHelper.m */,
+				A9223B5C1CDB17850018776B /* OAuthHelper.h */,
+				A9223B5D1CDB17850018776B /* OAuthHelper.m */,
+				A9223B671CDB4D630018776B /* ArchiveHelper.h */,
+				A9223B681CDB4D630018776B /* ArchiveHelper.m */,
 			);
-			name = UserDefaultHelper;
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		A9223B5F1CDB3F7B0018776B /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				A9223B601CDB40290018776B /* NSObject+Archive.h */,
+				A9223B611CDB40290018776B /* NSObject+Archive.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		A9223B631CDB4B7C0018776B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A9223B641CDB4BBE0018776B /* JZUser.h */,
+				A9223B651CDB4BBE0018776B /* JZUser.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,10 +416,14 @@
 			files = (
 				A9223B441CD9CF120018776B /* UserDefaultHelper.m in Sources */,
 				A9223B401CD9B9A60018776B /* HTTPManager.m in Sources */,
+				A9223B691CDB4D630018776B /* ArchiveHelper.m in Sources */,
+				A9223B621CDB40290018776B /* NSObject+Archive.m in Sources */,
 				A9223B381CD903A90018776B /* NetworkManager.m in Sources */,
 				40255AD31CD5011400BC0F7C /* ViewController.m in Sources */,
 				40255AD01CD5011400BC0F7C /* AppDelegate.m in Sources */,
 				40255ACD1CD5011400BC0F7C /* main.m in Sources */,
+				A9223B661CDB4BBE0018776B /* JZUser.m in Sources */,
+				A9223B5E1CDB17850018776B /* OAuthHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

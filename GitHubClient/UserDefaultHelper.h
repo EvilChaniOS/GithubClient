@@ -10,6 +10,10 @@
 
 @interface UserDefaultHelper : NSObject
 
-+ (void)setToekn:(NSString *)token ;
++ (void)setToken:(NSString *)token;
 + (NSString *)getToken;
+
++ (void)setEtag:(NSString *)etag;
++ (NSString *)getEtag;
+
 @end

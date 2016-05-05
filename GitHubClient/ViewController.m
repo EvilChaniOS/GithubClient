@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "GitHubConfigure.h"
 #import "NetworkManager.h"
+#import "OAuthHelper.h"
+#import "ArchiveHelper.h"
+#import "JZUser.h"
+
 @interface ViewController ()
 
 @end
@@ -22,14 +25,13 @@
 }
 
 - (IBAction)login:(id)sender {
-    NSString *url = [NSString stringWithFormat:@"%@?client_id=%@&scope=%@&redirect_uri=%@",kAuthorizeURL,kClientID,kScope,kRedirectURI];
-    [[UIApplication sharedApplication]openURL:[NSURL URLWithString:url]];
+    [OAuthHelper logonAuthentication];
 }
 
 - (IBAction)getUserInfo:(id)sender {
     [NetworkManager accessUserInfoSuccessBlock:^(id responseObj) {
         NSLog(@"res - %@",responseObj);
-    } NetworkErrorBlock:^(NSError *error) {
+    } networkErrorBlock:^(NSError *error) {
     
     }];
 }

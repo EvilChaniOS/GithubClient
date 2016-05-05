@@ -9,10 +9,15 @@
 #import "NetworkManager.h"
 #import "HTTPManager.h"
 #import "GitHubConfigure.h"
+#import "ArchiveHelper.h"
+#import "JZUser.h"
 
 @implementation NetworkManager
 
-+ (void)githubExchangeTokenWithCode:(NSString *)code SuccessBlock:(CompleteBlock)success NetworkErrorBlock:(NetworkErrorBlock)failure {
++ (void)githubExchangeTokenWithCode:(NSString *)code
+                       successBlock:(CompleteBlock)success
+                  networkErrorBlock:(NetworkErrorBlock)failure {
+    
     if (!code) return;
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
                                 kClientID,@"client_id",
@@ -31,11 +36,23 @@
     }];
 }
 
-+ (void)accessUserInfoSuccessBlock:(CompleteBlock)success NetworkErrorBlock:(NetworkErrorBlock)failure {
-
++ (void)accessUserInfoSuccessBlock:(CompleteBlock)success
+                 networkErrorBlock:(NetworkErrorBlock)failure {
+    
     [[HTTPManager shareInstance] get:kAccessUserInfoURL parameters:nil onCompletion:^(id responseObject) {
         if (success) {
-            success(responseObject);
+            if (!responseObject) {
+                // 使用缓存
+                JZUser *user = [ArchiveHelper unarchiveJZUser];
+                success(user);
+            } else {
+                // 返回新数据并归档缓存
+                JZUser *user = [JZUser new];
+                user.avatar_url = responseObject[@"avatar_url"];
+                user.login = responseObject[@"login"];
+                [ArchiveHelper archiveJZUserWithData:user];
+                success(responseObject);
+            }
         }
     } onError:^(NSError *error) {
         if (failure) {
