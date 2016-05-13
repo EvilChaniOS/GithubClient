@@ -9,6 +9,8 @@
 #import "HTTPManager.h"
 #import "AFNetworking.h"
 #import "UserDefaultHelper.h"
+#import "NSString+ArchivePath.h"
+#import "AFNetworkReachabilityManager.h"
 
 @interface HTTPManager ()
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
@@ -29,18 +31,33 @@
 
 - (void)get:(NSString *)url
  parameters:(NSDictionary *)parameters
-onCompletion:(SuccessBlock)successBlock
-    onError:(FailureErrorBlock)failureErrorBlock {
-
+requestFinishedCallback:(RequestFinishedCallback)requestFinishedCallback; {
+    
+    NSLog(@"etag path is %@",[NSString etagPathFromRequestURL:url]);
+    NSAssert(url.length != 0, @"URL is empty");
+    
+    // 注释掉了？
     [self.sessionManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [self addTokenForHTTPHeader];
+    
+    // 网络不可用
+//    if (![AFNetworkReachabilityManager sharedManager].isReachable) {
+//        if (requestFinishedCallback) {
+//            requestFinishedCallback(nil, @"");
+//        }
+//    }
+    
     [self.sessionManager GET:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
         // 2.添加Etag到请求头让服务器进行校验,并强制修改缓存策略(忽略URL缓存)
-        NSString *etag = [UserDefaultHelper getEtag];
-        if (etag) {
+        // 2.1 除了判断Etag 还须判断本地有无缓存
+        NSString *etag = [UserDefaultHelper getArchivedEtagWithURL:url];
+        id cache = [UserDefaultHelper getArchivedCacheWithURL:url];
+        if (etag.length > 0 && cache != nil) {
             [self.sessionManager.requestSerializer setValue:etag forHTTPHeaderField:@"If-None-Match"];
             self.sessionManager.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+        } else {
+            self.sessionManager.requestSerializer.cachePolicy = NSURLRequestUseProtocolCachePolicy;
         }
     
         // 3.AFN请求Success的状态码范围200～299,需要添加304
@@ -54,48 +71,47 @@ onCompletion:(SuccessBlock)successBlock
         // 1.通过response获取Etag
         NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
         if ([response respondsToSelector:@selector(allHeaderFields)]) {
-            NSLog(@"Response allHeaderFields - %@",response.allHeaderFields);
-            NSString *etag = response.allHeaderFields[@"Etag"];
-            [UserDefaultHelper setEtag:etag];
-        }
-        
-        if (successBlock) {
-            if (!responseObject) {
-                // 缓存responseObject
-                NSLog(@"使用缓存");
-                successBlock(nil);
+            if (response.statusCode == 304) {
+                if (requestFinishedCallback) {
+                    requestFinishedCallback(nil,cache);
+                    NSLog(@"Use cache ");
+                }
             } else {
-                // 返回新数据
-                if (successBlock) {
-                    NSDictionary *data = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
-                    NSLog(@"resonseObject data - %@",data);
-                    successBlock(data);
+                NSLog(@"Response allHeaderFields - %@",response.allHeaderFields);
+                NSString *etag = response.allHeaderFields[@"Etag"];
+                if (etag) {
+                    [UserDefaultHelper archiveRequestEtag:etag withUrl:url];
+                }
+                // json序列化
+//                NSDictionary *data = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
+                [UserDefaultHelper archiveRequestResponse:responseObject withURL:url];
+                if (requestFinishedCallback) {
+                    requestFinishedCallback(nil, responseObject);
                 }
             }
+            
         }
-
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        if (failureErrorBlock) {
-            failureErrorBlock(error);
+        if (requestFinishedCallback) {
+            requestFinishedCallback(error, nil);
         }
     }];
 }
 
 - (void)post:(NSString *)url
   parameters:(NSDictionary *)parameters
-onCompletion:(SuccessBlock)successBlock
-     onError:(FailureErrorBlock)failureErrorBlock {
+requestFinishedCallback:(RequestFinishedCallback)requestFinishedCallback;{
     
     [self.sessionManager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [self addTokenForHTTPHeader];
     [self.sessionManager POST:url parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        if (successBlock) {
+        if (requestFinishedCallback) {
             NSDictionary *data = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
-            successBlock(data);
+            requestFinishedCallback(nil, data);
         }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        if (failureErrorBlock) {
-            failureErrorBlock(error);
+        if (requestFinishedCallback) {
+            requestFinishedCallback(error, nil);
         }
     }];
 }

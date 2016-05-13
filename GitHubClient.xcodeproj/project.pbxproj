@@ -23,6 +23,26 @@
 		A9223B621CDB40290018776B /* NSObject+Archive.m in Sources */ = {isa = PBXBuildFile; fileRef = A9223B611CDB40290018776B /* NSObject+Archive.m */; };
 		A9223B661CDB4BBE0018776B /* JZUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A9223B651CDB4BBE0018776B /* JZUser.m */; };
 		A9223B691CDB4D630018776B /* ArchiveHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A9223B681CDB4D630018776B /* ArchiveHelper.m */; };
+		A9223B741CDC321C0018776B /* JZTrendingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9223B721CDC321C0018776B /* JZTrendingViewController.m */; };
+		A9223B751CDC321C0018776B /* JZTrendingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9223B731CDC321C0018776B /* JZTrendingViewController.xib */; };
+		A9223B8C1CDD856C0018776B /* JZMyRepositoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9223B8A1CDD856C0018776B /* JZMyRepositoriesViewController.m */; };
+		A9223B8D1CDD856C0018776B /* JZMyRepositoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9223B8B1CDD856C0018776B /* JZMyRepositoriesViewController.xib */; };
+		A9223B921CDD8B670018776B /* JZMyRepositoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9223B901CDD8B670018776B /* JZMyRepositoryCell.m */; };
+		A9223B931CDD8B670018776B /* JZMyRepositoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9223B911CDD8B670018776B /* JZMyRepositoryCell.xib */; };
+		A9223B961CDD8D180018776B /* JZMyRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = A9223B951CDD8D180018776B /* JZMyRepository.m */; };
+		A9223B991CDD9C1C0018776B /* UIImageView+SDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = A9223B981CDD9C1C0018776B /* UIImageView+SDWebImage.m */; };
+		A9410A511CE0D361006E92D1 /* JZMyRepoSummaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9410A501CE0D361006E92D1 /* JZMyRepoSummaryViewController.m */; };
+		A9410A541CE0D479006E92D1 /* JZMyRepoHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = A9410A531CE0D479006E92D1 /* JZMyRepoHeader.m */; };
+		A9410A561CE0D48C006E92D1 /* JZMyRepoHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9410A551CE0D48C006E92D1 /* JZMyRepoHeader.xib */; };
+		A9410A5A1CE0DCE2006E92D1 /* JZCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9410A581CE0DCE2006E92D1 /* JZCommonCell.m */; };
+		A9410A5B1CE0DCE2006E92D1 /* JZCommonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9410A591CE0DCE2006E92D1 /* JZCommonCell.xib */; };
+		A9410A5F1CE0DE1D006E92D1 /* JZRepoSummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A9410A5D1CE0DE1D006E92D1 /* JZRepoSummaryCell.m */; };
+		A9410A601CE0DE1D006E92D1 /* JZRepoSummaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9410A5E1CE0DE1D006E92D1 /* JZRepoSummaryCell.xib */; };
+		A9410A621CE0EAD6006E92D1 /* RepoSummary.plist in Resources */ = {isa = PBXBuildFile; fileRef = A9410A611CE0EAD6006E92D1 /* RepoSummary.plist */; };
+		A9E331341CE3F15E00106870 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E331331CE3F15E00106870 /* NSString+MD5.m */; };
+		A9E3313A1CE3F4BA00106870 /* NSString+ArchivePath.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E331391CE3F4BA00106870 /* NSString+ArchivePath.m */; };
+		A9E331561CE5AAFB00106870 /* NSObject+PropertyList.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E331551CE5AAFB00106870 /* NSObject+PropertyList.m */; };
+		A9E331591CE5EEBA00106870 /* JZNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E331581CE5EEBA00106870 /* JZNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +95,39 @@
 		A9223B651CDB4BBE0018776B /* JZUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZUser.m; sourceTree = "<group>"; };
 		A9223B671CDB4D630018776B /* ArchiveHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArchiveHelper.h; sourceTree = "<group>"; };
 		A9223B681CDB4D630018776B /* ArchiveHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArchiveHelper.m; sourceTree = "<group>"; };
+		A9223B711CDC321C0018776B /* JZTrendingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZTrendingViewController.h; sourceTree = "<group>"; };
+		A9223B721CDC321C0018776B /* JZTrendingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZTrendingViewController.m; sourceTree = "<group>"; };
+		A9223B731CDC321C0018776B /* JZTrendingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JZTrendingViewController.xib; sourceTree = "<group>"; };
+		A9223B891CDD856C0018776B /* JZMyRepositoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZMyRepositoriesViewController.h; sourceTree = "<group>"; };
+		A9223B8A1CDD856C0018776B /* JZMyRepositoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZMyRepositoriesViewController.m; sourceTree = "<group>"; };
+		A9223B8B1CDD856C0018776B /* JZMyRepositoriesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JZMyRepositoriesViewController.xib; sourceTree = "<group>"; };
+		A9223B8F1CDD8B670018776B /* JZMyRepositoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZMyRepositoryCell.h; sourceTree = "<group>"; };
+		A9223B901CDD8B670018776B /* JZMyRepositoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZMyRepositoryCell.m; sourceTree = "<group>"; };
+		A9223B911CDD8B670018776B /* JZMyRepositoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JZMyRepositoryCell.xib; sourceTree = "<group>"; };
+		A9223B941CDD8D180018776B /* JZMyRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZMyRepository.h; sourceTree = "<group>"; };
+		A9223B951CDD8D180018776B /* JZMyRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZMyRepository.m; sourceTree = "<group>"; };
+		A9223B971CDD9C1C0018776B /* UIImageView+SDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+SDWebImage.h"; sourceTree = "<group>"; };
+		A9223B981CDD9C1C0018776B /* UIImageView+SDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+SDWebImage.m"; sourceTree = "<group>"; };
+		A9410A4F1CE0D361006E92D1 /* JZMyRepoSummaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZMyRepoSummaryViewController.h; sourceTree = "<group>"; };
+		A9410A501CE0D361006E92D1 /* JZMyRepoSummaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZMyRepoSummaryViewController.m; sourceTree = "<group>"; };
+		A9410A521CE0D479006E92D1 /* JZMyRepoHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZMyRepoHeader.h; sourceTree = "<group>"; };
+		A9410A531CE0D479006E92D1 /* JZMyRepoHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZMyRepoHeader.m; sourceTree = "<group>"; };
+		A9410A551CE0D48C006E92D1 /* JZMyRepoHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JZMyRepoHeader.xib; sourceTree = "<group>"; };
+		A9410A571CE0DCE2006E92D1 /* JZCommonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZCommonCell.h; sourceTree = "<group>"; };
+		A9410A581CE0DCE2006E92D1 /* JZCommonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZCommonCell.m; sourceTree = "<group>"; };
+		A9410A591CE0DCE2006E92D1 /* JZCommonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JZCommonCell.xib; sourceTree = "<group>"; };
+		A9410A5C1CE0DE1D006E92D1 /* JZRepoSummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZRepoSummaryCell.h; sourceTree = "<group>"; };
+		A9410A5D1CE0DE1D006E92D1 /* JZRepoSummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZRepoSummaryCell.m; sourceTree = "<group>"; };
+		A9410A5E1CE0DE1D006E92D1 /* JZRepoSummaryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JZRepoSummaryCell.xib; sourceTree = "<group>"; };
+		A9410A611CE0EAD6006E92D1 /* RepoSummary.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = RepoSummary.plist; sourceTree = "<group>"; };
+		A9E331321CE3F15E00106870 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		A9E331331CE3F15E00106870 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		A9E331381CE3F4BA00106870 /* NSString+ArchivePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ArchivePath.h"; sourceTree = "<group>"; };
+		A9E331391CE3F4BA00106870 /* NSString+ArchivePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ArchivePath.m"; sourceTree = "<group>"; };
+		A9E331541CE5AAFB00106870 /* NSObject+PropertyList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+PropertyList.h"; sourceTree = "<group>"; };
+		A9E331551CE5AAFB00106870 /* NSObject+PropertyList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PropertyList.m"; sourceTree = "<group>"; };
+		A9E331571CE5EEBA00106870 /* JZNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZNavigationController.h; sourceTree = "<group>"; };
+		A9E331581CE5EEBA00106870 /* JZNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZNavigationController.m; sourceTree = "<group>"; };
 		B3F90B7742DF2C2777E1377A /* Pods-GitHubClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubClient/Pods-GitHubClient.release.xcconfig"; sourceTree = "<group>"; };
 		BFFB14B87C452ECFBF7EC8E8 /* Pods-GitHubClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubClient/Pods-GitHubClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -140,15 +193,16 @@
 			isa = PBXGroup;
 			children = (
 				A9223B3D1CD9A3E50018776B /* GitHubConfigure.h */,
+				A9410A611CE0EAD6006E92D1 /* RepoSummary.plist */,
+				A9223B8E1CDD8B160018776B /* View */,
+				A9223B761CDC3A220018776B /* Storyboard */,
+				A9223B6A1CDC30920018776B /* ViewController */,
 				A9223B631CDB4B7C0018776B /* Model */,
 				A9223B5F1CDB3F7B0018776B /* Category */,
 				A9223B411CD9CEE60018776B /* Helper */,
 				40255AFE1CD5045D00BC0F7C /* HttpClient */,
 				40255ACE1CD5011400BC0F7C /* AppDelegate.h */,
 				40255ACF1CD5011400BC0F7C /* AppDelegate.m */,
-				40255AD11CD5011400BC0F7C /* ViewController.h */,
-				40255AD21CD5011400BC0F7C /* ViewController.m */,
-				40255AD41CD5011400BC0F7C /* Main.storyboard */,
 				40255AD71CD5011400BC0F7C /* Assets.xcassets */,
 				40255AD91CD5011400BC0F7C /* LaunchScreen.storyboard */,
 				40255ADC1CD5011400BC0F7C /* Info.plist */,
@@ -220,6 +274,14 @@
 			children = (
 				A9223B601CDB40290018776B /* NSObject+Archive.h */,
 				A9223B611CDB40290018776B /* NSObject+Archive.m */,
+				A9223B971CDD9C1C0018776B /* UIImageView+SDWebImage.h */,
+				A9223B981CDD9C1C0018776B /* UIImageView+SDWebImage.m */,
+				A9E331321CE3F15E00106870 /* NSString+MD5.h */,
+				A9E331331CE3F15E00106870 /* NSString+MD5.m */,
+				A9E331381CE3F4BA00106870 /* NSString+ArchivePath.h */,
+				A9E331391CE3F4BA00106870 /* NSString+ArchivePath.m */,
+				A9E331541CE5AAFB00106870 /* NSObject+PropertyList.h */,
+				A9E331551CE5AAFB00106870 /* NSObject+PropertyList.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -229,8 +291,56 @@
 			children = (
 				A9223B641CDB4BBE0018776B /* JZUser.h */,
 				A9223B651CDB4BBE0018776B /* JZUser.m */,
+				A9223B941CDD8D180018776B /* JZMyRepository.h */,
+				A9223B951CDD8D180018776B /* JZMyRepository.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		A9223B6A1CDC30920018776B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				A9E331571CE5EEBA00106870 /* JZNavigationController.h */,
+				A9E331581CE5EEBA00106870 /* JZNavigationController.m */,
+				40255AD11CD5011400BC0F7C /* ViewController.h */,
+				40255AD21CD5011400BC0F7C /* ViewController.m */,
+				A9223B711CDC321C0018776B /* JZTrendingViewController.h */,
+				A9223B721CDC321C0018776B /* JZTrendingViewController.m */,
+				A9223B731CDC321C0018776B /* JZTrendingViewController.xib */,
+				A9223B891CDD856C0018776B /* JZMyRepositoriesViewController.h */,
+				A9223B8A1CDD856C0018776B /* JZMyRepositoriesViewController.m */,
+				A9223B8B1CDD856C0018776B /* JZMyRepositoriesViewController.xib */,
+				A9410A4F1CE0D361006E92D1 /* JZMyRepoSummaryViewController.h */,
+				A9410A501CE0D361006E92D1 /* JZMyRepoSummaryViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		A9223B761CDC3A220018776B /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				40255AD41CD5011400BC0F7C /* Main.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		A9223B8E1CDD8B160018776B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A9223B8F1CDD8B670018776B /* JZMyRepositoryCell.h */,
+				A9223B901CDD8B670018776B /* JZMyRepositoryCell.m */,
+				A9223B911CDD8B670018776B /* JZMyRepositoryCell.xib */,
+				A9410A521CE0D479006E92D1 /* JZMyRepoHeader.h */,
+				A9410A531CE0D479006E92D1 /* JZMyRepoHeader.m */,
+				A9410A551CE0D48C006E92D1 /* JZMyRepoHeader.xib */,
+				A9410A571CE0DCE2006E92D1 /* JZCommonCell.h */,
+				A9410A581CE0DCE2006E92D1 /* JZCommonCell.m */,
+				A9410A591CE0DCE2006E92D1 /* JZCommonCell.xib */,
+				A9410A5C1CE0DE1D006E92D1 /* JZRepoSummaryCell.h */,
+				A9410A5D1CE0DE1D006E92D1 /* JZRepoSummaryCell.m */,
+				A9410A5E1CE0DE1D006E92D1 /* JZRepoSummaryCell.xib */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,8 +408,9 @@
 		40255AC01CD5011400BC0F7C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = JZ;
 				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = "臧其龙";
+				ORGANIZATIONNAME = "陈炯舟";
 				TargetAttributes = {
 					40255AC71CD5011400BC0F7C = {
 						CreatedOnToolsVersion = 7.3;
@@ -340,8 +451,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				40255ADB1CD5011400BC0F7C /* LaunchScreen.storyboard in Resources */,
+				A9223B931CDD8B670018776B /* JZMyRepositoryCell.xib in Resources */,
+				A9223B8D1CDD856C0018776B /* JZMyRepositoriesViewController.xib in Resources */,
+				A9410A621CE0EAD6006E92D1 /* RepoSummary.plist in Resources */,
 				40255AD81CD5011400BC0F7C /* Assets.xcassets in Resources */,
+				A9410A561CE0D48C006E92D1 /* JZMyRepoHeader.xib in Resources */,
 				40255AD61CD5011400BC0F7C /* Main.storyboard in Resources */,
+				A9410A5B1CE0DCE2006E92D1 /* JZCommonCell.xib in Resources */,
+				A9410A601CE0DE1D006E92D1 /* JZRepoSummaryCell.xib in Resources */,
+				A9223B751CDC321C0018776B /* JZTrendingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,16 +532,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9223B8C1CDD856C0018776B /* JZMyRepositoriesViewController.m in Sources */,
+				A9E3313A1CE3F4BA00106870 /* NSString+ArchivePath.m in Sources */,
+				A9E331591CE5EEBA00106870 /* JZNavigationController.m in Sources */,
 				A9223B441CD9CF120018776B /* UserDefaultHelper.m in Sources */,
+				A9E331341CE3F15E00106870 /* NSString+MD5.m in Sources */,
+				A9223B921CDD8B670018776B /* JZMyRepositoryCell.m in Sources */,
 				A9223B401CD9B9A60018776B /* HTTPManager.m in Sources */,
+				A9410A5A1CE0DCE2006E92D1 /* JZCommonCell.m in Sources */,
 				A9223B691CDB4D630018776B /* ArchiveHelper.m in Sources */,
+				A9223B991CDD9C1C0018776B /* UIImageView+SDWebImage.m in Sources */,
+				A9223B961CDD8D180018776B /* JZMyRepository.m in Sources */,
+				A9410A511CE0D361006E92D1 /* JZMyRepoSummaryViewController.m in Sources */,
 				A9223B621CDB40290018776B /* NSObject+Archive.m in Sources */,
+				A9E331561CE5AAFB00106870 /* NSObject+PropertyList.m in Sources */,
 				A9223B381CD903A90018776B /* NetworkManager.m in Sources */,
 				40255AD31CD5011400BC0F7C /* ViewController.m in Sources */,
+				A9410A541CE0D479006E92D1 /* JZMyRepoHeader.m in Sources */,
+				A9223B741CDC321C0018776B /* JZTrendingViewController.m in Sources */,
 				40255AD01CD5011400BC0F7C /* AppDelegate.m in Sources */,
 				40255ACD1CD5011400BC0F7C /* main.m in Sources */,
 				A9223B661CDB4BBE0018776B /* JZUser.m in Sources */,
 				A9223B5E1CDB17850018776B /* OAuthHelper.m in Sources */,
+				A9410A5F1CE0DE1D006E92D1 /* JZRepoSummaryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,8 +698,9 @@
 			baseConfigurationReference = BFFB14B87C452ECFBF7EC8E8 /* Pods-GitHubClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = GitHubClient/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zangqilong.GitHubClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -582,8 +714,9 @@
 			baseConfigurationReference = B3F90B7742DF2C2777E1377A /* Pods-GitHubClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = GitHubClient/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zangqilong.GitHubClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";

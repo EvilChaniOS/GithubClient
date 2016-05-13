@@ -8,16 +8,33 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^CompleteBlock)(id responseObj);
-typedef void (^NetworkErrorBlock)(NSError *error);
+//typedef void (^CompleteBlock)(id responseObj);
+//typedef void (^NetworkErrorBlock)(NSError *error);
+typedef void(^FinishedCallback)(NSError *error, id responseObject);
 
 @interface NetworkManager : NSObject
 
+/**
+ *  获取Token
+ */
 + (void)githubExchangeTokenWithCode:(NSString *)code
-                       successBlock:(CompleteBlock)success
-                  networkErrorBlock:(NetworkErrorBlock)failure;
+            finishedCallback:(FinishedCallback)finishedCallback;
+;
 
-+ (void)accessUserInfoSuccessBlock:(CompleteBlock)success
-                 networkErrorBlock:(NetworkErrorBlock)failure;
+/**
+ *  获取用户数据
+ */
++ (void)accessUserInfoWithFinishedCallback:(FinishedCallback)finishedCallback;
+
+/**
+ *  获取Trending首页数据
+ */
++ (void)fetchTrendingDataWithFinishedCallback:(FinishedCallback)finishedCallback;
+
+
+/**
+ *  获取我的仓库
+ */
++ (void)fetchMyRepositoriesWithFinishedCallback:(FinishedCallback)finishedCallback;
 
 @end

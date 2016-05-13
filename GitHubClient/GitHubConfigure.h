@@ -17,4 +17,6 @@ static NSString * const kClientSecret = @"31c841850d70626334571dabc4c31d9c8523d5
 static NSString * const kAuthorizeURL = @"https://github.com/login/oauth/authorize";
 static NSString * const kAccessTokenURL = @"https://github.com/login/oauth/access_token";
 static NSString * const kAccessUserInfoURL = @"https://api.github.com/user";
+static NSString * const kTrendingURL = @"http://trending.codehub-app.com/trending";
+static NSString * const kMyRepositoriesURL = @"https://api.github.com/users/EvilChaniOS/repos";
 #endif /* GitHubConfigure_h */

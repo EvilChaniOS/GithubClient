@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^SuccessBlock)(id responseObject);
-typedef void (^FailureErrorBlock)( NSError * error);
+//typedef void(^SuccessBlock)(id responseObject);
+//typedef void(^FailureErrorBlock)( NSError * error);
+typedef void(^RequestFinishedCallback)(NSError *error, id responseObject);
 
 @interface HTTPManager : NSObject
 
@@ -17,12 +18,10 @@ typedef void (^FailureErrorBlock)( NSError * error);
 
 - (void)get:(NSString *)url
  parameters:(NSDictionary *)parameters
-onCompletion:(SuccessBlock)successBlock
-    onError:(FailureErrorBlock)failureErrorBlock;
+requestFinishedCallback:(RequestFinishedCallback)requestFinishedCallback;
 
 - (void)post:(NSString *)url
   parameters:(NSDictionary *)parameters
-onCompletion:(SuccessBlock)successBlock
-     onError:(FailureErrorBlock)failureErrorBlock;
+requestFinishedCallback:(RequestFinishedCallback)requestFinishedCallback;
 
 @end

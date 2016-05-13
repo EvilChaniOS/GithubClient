@@ -9,9 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @class JZUser;
+
 @interface ArchiveHelper : NSObject
 
-+ (void)archiveJZUserWithData:(JZUser *)data;
++ (BOOL)archiveJZUser:(JZUser *)data;
 + (JZUser *)unarchiveJZUser;
+
++ (BOOL)archiveMyRepositories:(NSMutableArray *)repositories;
++ (NSMutableArray *)unarchiveJZMyRepositories;
 
 @end

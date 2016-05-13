@@ -10,7 +10,7 @@
 
 @interface OAuthHelper : NSObject
 
-+ (void)logonAuthentication;
++ (void)loginAuthentication;
 
 + (BOOL)handleOpenURLWithURL:(NSURL *)url;
 

@@ -14,7 +14,7 @@
 
 @implementation OAuthHelper
 
-+ (void)logonAuthentication {
++ (void)loginAuthentication {
     NSString *url = [NSString stringWithFormat:@"%@?client_id=%@&scope=%@&redirect_uri=%@",kAuthorizeURL,kClientID,kScope,kRedirectURI];
     [[UIApplication sharedApplication]openURL:[NSURL URLWithString:url]];
 }
@@ -23,13 +23,13 @@
     if(!url.absoluteString) return NO;
     NSLog(@"url - %@",url.absoluteString);
     NSString *code = [[self class] getCodeFromOpenURL:url];
-    [NetworkManager githubExchangeTokenWithCode:code successBlock:^(id responseObj) {
-        NSLog(@"res - %@",responseObj);
-        NSString *token = responseObj[@"access_token"];
+    
+    [NetworkManager githubExchangeTokenWithCode:code finishedCallback:^(NSError *error, id responseObject) {
+        NSLog(@"res - %@",responseObject);
+        NSString *token = responseObject[@"access_token"];
         [UserDefaultHelper setToken:token];
-    } networkErrorBlock:^(NSError *error) {
-        
     }];
+
     return YES;
 }
 

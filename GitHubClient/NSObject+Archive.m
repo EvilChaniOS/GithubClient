@@ -29,6 +29,7 @@
 }
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    
     if (self = [self init]) {
         unsigned int outCount = 0;
         Ivar *ivars = class_copyIvarList([self class], &outCount);
@@ -40,6 +41,7 @@
             
             [self setValue:value forKey:key];
         }
+        
         free(ivars);
     }
     return self;

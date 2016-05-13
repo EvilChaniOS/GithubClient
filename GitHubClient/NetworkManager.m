@@ -11,54 +11,58 @@
 #import "GitHubConfigure.h"
 #import "ArchiveHelper.h"
 #import "JZUser.h"
+#import "JZMyRepository.h"
 
 @implementation NetworkManager
 
 + (void)githubExchangeTokenWithCode:(NSString *)code
-                       successBlock:(CompleteBlock)success
-                  networkErrorBlock:(NetworkErrorBlock)failure {
-    
+                   finishedCallback:(FinishedCallback)finishedCallback{
     if (!code) return;
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:
                                 kClientID,@"client_id",
                                 kClientSecret,@"client_secret",
                                 code,@"code",
-                                kRedirectURI,@"code",nil];
-    
-    [[HTTPManager shareInstance] post:kAccessTokenURL parameters:parameters onCompletion:^(id responseObject) {
-        if (success) {
-            success(responseObject);
-        }
-    } onError:^(NSError *error) {
-        if (failure) {
-            failure(error);
+                                kRedirectURI,@"redirect_uri",nil];
+    [[HTTPManager shareInstance] post:kAccessTokenURL parameters:parameters requestFinishedCallback:^(NSError *error, id responseObject) {
+        if (finishedCallback) {
+            finishedCallback(error, responseObject);
         }
     }];
 }
 
-+ (void)accessUserInfoSuccessBlock:(CompleteBlock)success
-                 networkErrorBlock:(NetworkErrorBlock)failure {
-    
-    [[HTTPManager shareInstance] get:kAccessUserInfoURL parameters:nil onCompletion:^(id responseObject) {
-        if (success) {
-            if (!responseObject) {
-                // 使用缓存
-                JZUser *user = [ArchiveHelper unarchiveJZUser];
-                success(user);
-            } else {
-                // 返回新数据并归档缓存
-                JZUser *user = [JZUser new];
-                user.avatar_url = responseObject[@"avatar_url"];
-                user.login = responseObject[@"login"];
-                [ArchiveHelper archiveJZUserWithData:user];
-                success(responseObject);
-            }
-        }
-    } onError:^(NSError *error) {
-        if (failure) {
-            failure(error);
++ (void)accessUserInfoWithFinishedCallback:(FinishedCallback)finishedCallback {
+     [[HTTPManager shareInstance] get:kAccessUserInfoURL parameters:nil requestFinishedCallback:^(NSError *error, id responseObject) {
+         if (error && finishedCallback) {
+             finishedCallback(error, nil);
+             return ;
+         }
+         // json序列化
+//          NSDictionary *data = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
+             if (finishedCallback) {
+                 finishedCallback(nil, responseObject);
+             }
+     }];
+}
+
++ (void)fetchTrendingDataWithFinishedCallback:(FinishedCallback)finishedCallback {
+    [[HTTPManager shareInstance] get:kTrendingURL parameters:nil requestFinishedCallback:^(NSError *error, id responseObject) {
+        if (finishedCallback) {
+            finishedCallback(error, responseObject);
         }
     }];
+}
+
++ (void)fetchMyRepositoriesWithFinishedCallback:(FinishedCallback)finishedCallback {
+    
+     [[HTTPManager shareInstance] get:kMyRepositoriesURL parameters:nil requestFinishedCallback:^(NSError *error, id responseObject) {
+         if (error && finishedCallback) {
+             finishedCallback(error, nil);
+             return ;
+         }
+         if (finishedCallback) {
+             finishedCallback(nil, responseObject);
+         }
+     }];
 }
 
 @end

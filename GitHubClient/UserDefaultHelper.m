@@ -7,6 +7,7 @@
 //
 
 #import "UserDefaultHelper.h"
+#import "NSString+ArchivePath.h"
 
 static NSString * const kAccessToken = @"kAccessToken";
 static NSString * const kEtag = @"kEtag";
@@ -31,6 +32,36 @@ static NSString * const kEtag = @"kEtag";
 
 + (NSString *)getEtag {
     return [[NSUserDefaults standardUserDefaults] objectForKey:kEtag];
+}
+
+
++ (BOOL)archiveRequestEtag:(NSString *)etag withUrl:(NSString *)url {
+    NSString *etagPathDirectory = [NSString etagPathDirectoryFromRequestURL:url];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:etagPathDirectory]) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:etagPathDirectory withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    return [NSKeyedArchiver archiveRootObject:etag toFile:[NSString etagPathFromRequestURL:url]];
+    
+}
+
++ (NSString *)getArchivedEtagWithURL:(NSString *)url {
+    NSString *etagPath = [NSString etagPathFromRequestURL:url];
+    return (NSString *)[NSKeyedUnarchiver unarchiveObjectWithFile:etagPath];
+}
+
+
+
++ (id)getArchivedCacheWithURL:(NSString *)url {
+    NSString *cachePath = [NSString cachePathFromRequestURL:url];
+    return [NSKeyedUnarchiver unarchiveObjectWithFile:cachePath];
+}
+
++ (BOOL)archiveRequestResponse:(id)responseObject withURL:(NSString *)url {
+    NSString *cachePathDirectory = [NSString cachePathDirectoryFromRequestURL:url];
+    if (![[NSFileManager defaultManager] fileExistsAtPath:cachePathDirectory]) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:cachePathDirectory withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    return [NSKeyedArchiver archiveRootObject:responseObject toFile:[NSString cachePathFromRequestURL:url]];
 }
 
 @end
