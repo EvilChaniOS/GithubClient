@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "OAuthHelper.h"
+#import "FMDB.h"
 
 @interface AppDelegate ()
 

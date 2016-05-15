@@ -43,6 +43,7 @@
 		A9E3313A1CE3F4BA00106870 /* NSString+ArchivePath.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E331391CE3F4BA00106870 /* NSString+ArchivePath.m */; };
 		A9E331561CE5AAFB00106870 /* NSObject+PropertyList.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E331551CE5AAFB00106870 /* NSObject+PropertyList.m */; };
 		A9E331591CE5EEBA00106870 /* JZNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E331581CE5EEBA00106870 /* JZNavigationController.m */; };
+		A9E331641CE7875F00106870 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E331631CE7875F00106870 /* DBManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +129,8 @@
 		A9E331551CE5AAFB00106870 /* NSObject+PropertyList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+PropertyList.m"; sourceTree = "<group>"; };
 		A9E331571CE5EEBA00106870 /* JZNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JZNavigationController.h; sourceTree = "<group>"; };
 		A9E331581CE5EEBA00106870 /* JZNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JZNavigationController.m; sourceTree = "<group>"; };
+		A9E331621CE7875F00106870 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		A9E331631CE7875F00106870 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		B3F90B7742DF2C2777E1377A /* Pods-GitHubClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubClient/Pods-GitHubClient.release.xcconfig"; sourceTree = "<group>"; };
 		BFFB14B87C452ECFBF7EC8E8 /* Pods-GitHubClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GitHubClient/Pods-GitHubClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -194,6 +197,7 @@
 			children = (
 				A9223B3D1CD9A3E50018776B /* GitHubConfigure.h */,
 				A9410A611CE0EAD6006E92D1 /* RepoSummary.plist */,
+				A9E3315E1CE77FD600106870 /* DB */,
 				A9223B8E1CDD8B160018776B /* View */,
 				A9223B761CDC3A220018776B /* Storyboard */,
 				A9223B6A1CDC30920018776B /* ViewController */,
@@ -341,6 +345,15 @@
 				A9410A5E1CE0DE1D006E92D1 /* JZRepoSummaryCell.xib */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		A9E3315E1CE77FD600106870 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				A9E331621CE7875F00106870 /* DBManager.h */,
+				A9E331631CE7875F00106870 /* DBManager.m */,
+			);
+			name = DB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -547,6 +560,7 @@
 				A9223B621CDB40290018776B /* NSObject+Archive.m in Sources */,
 				A9E331561CE5AAFB00106870 /* NSObject+PropertyList.m in Sources */,
 				A9223B381CD903A90018776B /* NetworkManager.m in Sources */,
+				A9E331641CE7875F00106870 /* DBManager.m in Sources */,
 				40255AD31CD5011400BC0F7C /* ViewController.m in Sources */,
 				A9410A541CE0D479006E92D1 /* JZMyRepoHeader.m in Sources */,
 				A9223B741CDC321C0018776B /* JZTrendingViewController.m in Sources */,

@@ -85,11 +85,13 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-GitHubClient/AFNetworking.framework"
+  install_framework "Pods-GitHubClient/FMDB.framework"
   install_framework "Pods-GitHubClient/MJExtension.framework"
   install_framework "Pods-GitHubClient/SDWebImage.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-GitHubClient/AFNetworking.framework"
+  install_framework "Pods-GitHubClient/FMDB.framework"
   install_framework "Pods-GitHubClient/MJExtension.framework"
   install_framework "Pods-GitHubClient/SDWebImage.framework"
 fi

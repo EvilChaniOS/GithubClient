@@ -49,8 +49,6 @@ static NSString * const kEtag = @"kEtag";
     return (NSString *)[NSKeyedUnarchiver unarchiveObjectWithFile:etagPath];
 }
 
-
-
 + (id)getArchivedCacheWithURL:(NSString *)url {
     NSString *cachePath = [NSString cachePathFromRequestURL:url];
     return [NSKeyedUnarchiver unarchiveObjectWithFile:cachePath];

@@ -11,6 +11,7 @@
 #import "UserDefaultHelper.h"
 #import "NSString+ArchivePath.h"
 #import "AFNetworkReachabilityManager.h"
+#import "DBManager.h"
 
 @interface HTTPManager ()
 @property (nonatomic, strong) AFHTTPSessionManager *sessionManager;
@@ -52,8 +53,9 @@ requestFinishedCallback:(RequestFinishedCallback)requestFinishedCallback; {
         // 2.添加Etag到请求头让服务器进行校验,并强制修改缓存策略(忽略URL缓存)
         // 2.1 除了判断Etag 还须判断本地有无缓存
         NSString *etag = [UserDefaultHelper getArchivedEtagWithURL:url];
-        id cache = [UserDefaultHelper getArchivedCacheWithURL:url];
-        if (etag.length > 0 && cache != nil) {
+//        id cache = [UserDefaultHelper getArchivedCacheWithURL:url];
+        NSArray *cache = [[DBManager shareInstance] queryCacheWithURl:url];
+        if (etag.length > 0 && cache.count ) {
             [self.sessionManager.requestSerializer setValue:etag forHTTPHeaderField:@"If-None-Match"];
             self.sessionManager.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
         } else {
@@ -82,9 +84,9 @@ requestFinishedCallback:(RequestFinishedCallback)requestFinishedCallback; {
                 if (etag) {
                     [UserDefaultHelper archiveRequestEtag:etag withUrl:url];
                 }
-                // json序列化
-//                NSDictionary *data = [NSJSONSerialization JSONObjectWithData:responseObject options:kNilOptions error:nil];
-                [UserDefaultHelper archiveRequestResponse:responseObject withURL:url];
+
+//                [UserDefaultHelper archiveRequestResponse:responseObject withURL:url];
+                [[DBManager shareInstance] updataCacheResponseObject:responseObject withURL:url];
                 if (requestFinishedCallback) {
                     requestFinishedCallback(nil, responseObject);
                 }

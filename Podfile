@@ -7,7 +7,7 @@ target 'GitHubClient' do
 pod 'AFNetworking'
 pod 'SDWebImage'
 pod 'MJExtension'
-#pod 'FMDB'
+pod 'FMDB'
 end
 
 target 'GitHubClientTests' do

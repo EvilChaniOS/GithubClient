@@ -59,6 +59,7 @@
              finishedCallback(error, nil);
              return ;
          }
+         NSLog(@"MyRepositories - %@", responseObject);
          if (finishedCallback) {
              finishedCallback(nil, responseObject);
          }
